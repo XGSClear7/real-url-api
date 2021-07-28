@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import Blueprint
+from flask import Blueprint, render_template
 from flask_restful import Resource
 from flask_restful import reqparse
 from loguru import logger
@@ -40,4 +40,17 @@ class LiveUrl(Resource):
         return return_data
 
 
+class LiveUrlDocs(Resource):
+    """
+    接口文档
+    """
+    def get(self):
+        """
+        获取接口文档
+        :return:
+        """
+        return render_template('LiveUrlDocs.html')
+
+
+live_api.add_url_rule(rule='/api-docs', view_func=LiveUrl.as_view('api-docs'))
 live_api.add_url_rule(rule='/get-url', view_func=LiveUrl.as_view('get-live-url'))

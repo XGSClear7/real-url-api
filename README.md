@@ -53,11 +53,15 @@ python flask_server.py
 
 mac的话原谅我穷。
 
-### 接口
+### 接口地址
 
 http://api.pyduck.com/live-api/get-url
 
 接口免费，服务器性能有限，请爱惜。
+
+### 接口文档请访问
+
+http://api.pyduck.com/live-api/api-docs
 
 [1]: https://github.com/wbt5/real-url
 
