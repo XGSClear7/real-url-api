@@ -52,5 +52,5 @@ class LiveUrlDocs(Resource):
         return render_template('LiveUrlDocs.html')
 
 
-live_api.add_url_rule(rule='/api-docs', view_func=LiveUrl.as_view('api-docs'))
+live_api.add_url_rule(rule='/api-docs', view_func=LiveUrlDocs.as_view('api-docs'))
 live_api.add_url_rule(rule='/get-url', view_func=LiveUrl.as_view('get-live-url'))
