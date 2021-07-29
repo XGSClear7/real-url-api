@@ -31,18 +31,8 @@ class DouYu(Base):
             rid:
         """
         super(Base, self).__init__()
-        self.did = '10000000000000000000000000001501'
-        self.t10 = str(int(time.time()))
-        self.t13 = str(int((time.time() * 1000)))
+        self.rid = rid
 
-        self.s = requests.Session()
-        self.res = self.s.get('https://m.douyu.com/' + str(rid)).text
-        result = re.search(r'rid":(\d{1,7}),"vipId', self.res)
-
-        if result:
-            self.rid = result.group(1)
-        else:
-            raise Exception('房间号错误')
 
     @staticmethod
     def md5(data):
@@ -122,6 +112,18 @@ class DouYu(Base):
         return res
 
     def get_real_url(self):
+        self.did = '10000000000000000000000000001501'
+        self.t10 = str(int(time.time()))
+        self.t13 = str(int((time.time() * 1000)))
+
+        self.s = requests.Session()
+        self.res = self.s.get('https://m.douyu.com/' + str(self.rid)).text
+        result = re.search(r'rid":(\d{1,7}),"vipId', self.res)
+
+        if result:
+            self.rid = result.group(1)
+        else:
+            return '房间号错误'
         error, key = self.get_pre()
         if error == 0:
             pass
