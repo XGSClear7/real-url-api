@@ -60,7 +60,7 @@ class IQiYi(Base):
         }
         # ba传参iqiyi.js,返回vf
         ba = '/jp/live?' + urllib.parse.urlencode(params)
-        with open('iqiyi.js', 'r') as f:
+        with open('scripts/lives/iqiyi.js', 'r') as f:
             content = f.read()
         try:
             cmd5x = execjs.compile(content)
@@ -69,8 +69,12 @@ class IQiYi(Base):
             return 'Could not find an available JavaScript runtime.'
         # 请求
         response = self.s.get('https://live.video.iqiyi.com' + ba, params={'vf': vf}).text
+        print(response)
         url_json = json.loads(re.findall(r'try{.*?\((.*)\);}catch\(e\){};', response)[0])
-        url = (url_json.get('data').get('streams'))[0].get('url')
+        try:
+            url = (url_json.get('data').get('streams'))[0].get('url')
+        except:
+            return 'server return err-data.'
         url = url.replace('hlslive.video.iqiyi.com', 'm3u8live.video.iqiyi.com')
         return url
 
