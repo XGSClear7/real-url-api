@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from loguru import logger
-
+from loguru import logger
 from scripts import __all__ as scripts_cls
 
 
@@ -12,6 +12,7 @@ class RunScripts:
         self.parameter = parameter
         self.scripts = [scripts(self.parameter) for scripts in self.scripts_cls]
 
+    @logger.catch
     def choice(self):
         """
         选择脚本
