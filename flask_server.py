@@ -2,7 +2,6 @@
 from flask import Flask
 from flask_restful import Api
 
-from loguru import logger
 from apps.live_url_api import live_api
 from config import *
 
