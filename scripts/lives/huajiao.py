@@ -2,7 +2,7 @@
 
 import requests
 import time
-from scripts.base import Base
+from scripts.live.base import Base
 
 
 class HuaJiao(Base):

@@ -2,7 +2,7 @@
 
 import requests
 import re
-from scripts.base import Base
+from scripts.live.base import Base
 
 
 class JWXiu(Base):

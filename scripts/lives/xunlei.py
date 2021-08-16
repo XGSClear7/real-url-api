@@ -5,7 +5,7 @@ import hashlib
 import time
 from urllib.parse import urlencode
 
-from scripts.base import Base
+from scripts.live.base import Base
 
 
 class XunLei(Base):

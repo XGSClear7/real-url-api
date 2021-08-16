@@ -1,10 +1,11 @@
 # 九秀直播：https://www.9xiu.com/other/classify?tag=all&index=all
 
 import requests
-from scripts.base import Base
+
+from scripts.live.base import Base
+
 
 class JXiu(Base):
-
     _name = '九秀'
 
     def __init__(self, rid):
@@ -13,7 +14,7 @@ class JXiu(Base):
 
     def get_real_url(self):
         with requests.Session() as s:
-            url = 'https://h5.9xiu.com/room/live/enterRoom?rid=' + str( self.rid)
+            url = 'https://h5.9xiu.com/room/live/enterRoom?rid=' + str(self.rid)
             headers = {
                 'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) '
                               'AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1'

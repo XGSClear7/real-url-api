@@ -5,7 +5,7 @@ import re
 
 import requests
 
-from scripts.base import Base
+from scripts.live.base import Base
 
 
 class QF(Base):
