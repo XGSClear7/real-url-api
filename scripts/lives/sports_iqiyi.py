@@ -15,7 +15,7 @@ from urllib.parse import urlencode
 import execjs
 import requests
 
-from scripts.live.base import Base
+from scripts.base import Base
 
 
 class sIQiYi(Base):

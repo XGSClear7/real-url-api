@@ -5,7 +5,7 @@ import json
 
 import requests
 
-from scripts.live.base import Base
+from scripts.base import Base
 
 
 class AcFun(Base):

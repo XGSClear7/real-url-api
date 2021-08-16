@@ -7,7 +7,7 @@ import base64
 import json
 import requests
 
-from scripts.live.base import Base
+from scripts.base import Base
 
 
 class FengBo(Base):

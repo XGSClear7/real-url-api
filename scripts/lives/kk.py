@@ -1,7 +1,7 @@
 # KK直播：http://www.kktv5.com/
 import requests
 
-from scripts.live.base import Base
+from scripts.base import Base
 
 
 class KK(Base):

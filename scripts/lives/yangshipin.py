@@ -18,7 +18,7 @@ from urllib.parse import parse_qs
 import requests
 from Crypto.Cipher import AES
 
-from scripts.live.base import Base
+from scripts.base import Base
 
 
 def aes_encrypt(text):

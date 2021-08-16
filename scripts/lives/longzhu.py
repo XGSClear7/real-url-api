@@ -4,7 +4,7 @@ import re
 
 import requests
 
-from scripts.live.base import Base
+from scripts.base import Base
 
 
 class LongZhu(Base):

@@ -7,7 +7,7 @@ import time
 import execjs
 import requests
 
-from scripts.live.base import Base
+from scripts.base import Base
 
 
 class DouYu(Base):

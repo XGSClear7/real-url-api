@@ -10,7 +10,7 @@ from urllib.parse import parse_qsl, urlsplit
 
 import requests
 
-from scripts.live.base import Base
+from scripts.base import Base
 
 
 class KBS(Base):

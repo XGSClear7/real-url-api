@@ -11,7 +11,7 @@ from urllib.parse import urlencode
 # twitch 直播需要科学上网
 import requests
 
-from scripts.live.base import Base
+from scripts.base import Base
 
 
 class Twitch(Base):

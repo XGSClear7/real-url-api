@@ -14,7 +14,7 @@ from Crypto.Cipher import PKCS1_v1_5
 from Crypto.Hash import SHA256
 from Crypto.PublicKey import RSA
 
-from scripts.live.base import Base
+from scripts.base import Base
 
 
 def des_encrypt(text, key, iv):

@@ -4,7 +4,7 @@ from urllib.parse import urlencode
 import requests
 import time
 import hashlib
-from scripts.live.base import Base
+from scripts.base import Base
 
 
 class LM(Base):
