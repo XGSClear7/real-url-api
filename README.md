@@ -19,6 +19,9 @@
 由于本身有工作，再加上下班就躺，所以有问题请发issue，我会用上班摸鱼的时间去看。
 
 ### 运行环境
+docker
+docker pull miven/real-url-api
+docker run -d --restart=always -p 7000:7000 miven/real-url-api
 
 首先要有python3.6及以上
 
