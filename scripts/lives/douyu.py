@@ -56,7 +56,7 @@ class DouYu(Base):
         key = ''
         if data:
             rtmp_live = data['rtmp_live']
-            key = re.search(r'(\d{1,7}[0-9a-zA-Z]+)_?\d{0,4}(/playlist|.m3u8)', rtmp_live).group(1)
+            key = re.search(r'(\d{1,8}[0-9a-zA-Z]+)_?\d{0,4}(/playlist|.m3u8)', rtmp_live).group(1)
         return error, key
 
     def get_js(self):
@@ -78,7 +78,7 @@ class DouYu(Base):
 
         url = 'https://m.douyu.com/api/room/ratestream'
         res = self.s.post(url, params=params).text
-        key = re.search(r'(\d{1,7}[0-9a-zA-Z]+)_?\d{0,4}(.m3u8|/playlist)', res).group(1)
+        key = re.search(r'(\d{1,8}[0-9a-zA-Z]+)_?\d{0,4}(.m3u8|/playlist)', res).group(1)
 
         return key
 
@@ -118,7 +118,7 @@ class DouYu(Base):
 
         self.s = requests.Session()
         self.res = self.s.get('https://m.douyu.com/' + str(self.rid)).text
-        result = re.search(r'rid":(\d{1,7}),"vipId', self.res)
+        result = re.search(r'rid":(\d{1,8}),"vipId', self.res)
 
         if result:
             self.rid = result.group(1)
