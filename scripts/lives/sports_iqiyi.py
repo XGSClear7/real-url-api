@@ -54,8 +54,8 @@ class sIQiYi(Base):
             i = n[:y - x]
             n = n[y - x:]
 
-        for r in range(0, len(a)):
-            if a[r] == n[r]:
+        for rs, ele in enumerate(a):
+            if ele == n[rs]:
                 i += '0'
             else:
                 i += '1'
@@ -112,12 +112,17 @@ class sIQiYi(Base):
         # 请求url
         url = f'https://live.video.iqiyi.com{k}&vf={vf}'
         res = self.s.get(url).text
-
-        try:
-            res, = re.findall(r'try{[\s\S]{33}\((.*)\);}catch\(e\){};', res)
-            url = json.loads(res)['data']['streams'][-1]['url']
-        except ValueError:
-            return 'Incorrect rid.'
+        data = re.search(r'try{\w{33}\(([\w\W]+)\s\);}catch\(e\){};', res).group(1)
+        data = json.loads(data)
+        if data['code'] == 'A00004':
+            return '直播间地址错误！'
+        elif data['code'] == 'A00000':
+            try:
+                url = data['data']['streams'][-1]['url']
+            except IndexError:
+                return '可能直播未开始直播或为付费直播！'
+        else:
+            return '无法定位错误原因，可提交issue！'
         return url
 
 
